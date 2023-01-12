@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Kanit&display=swap");
+
+.App {
+  font-family: "Kanit", sans-serif;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 1000px !important;
+  }
+}
+
+@media (max-width: 2000px) {
+  .container {
+    max-width: 1250px !important;
+  }
+}

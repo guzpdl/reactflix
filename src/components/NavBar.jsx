@@ -1,11 +1,16 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilm } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
-    <Navbar variant="dark" bg="dark" expand="lg">
+    <Navbar className="px-5 pt-2" variant="dark" bg="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand className="logoLetters" href="/">
+          <FontAwesomeIcon className="logoIcon" icon={faFilm} /> REACTFLIX
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbar-dark-example" />
         <Navbar.Collapse id="navbar-dark-example">
           <Nav className="me-auto">

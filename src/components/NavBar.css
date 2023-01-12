@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
+
+.logoLetters {
+  font-family: "Archivo Black", sans-serif;
+}
+
+.logoIcon {
+  color: crimson;
+}

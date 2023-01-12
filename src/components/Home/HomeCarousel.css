@@ -1,0 +1,22 @@
+.carousel {
+  min-width: 320px;
+  width: 100%;
+  /* max-width: 1125px; */
+  margin: 10px auto;
+}
+
+.carousel-image {
+  opacity: 0.4;
+}
+
+@media (max-width: 1000px) {
+  .carousel {
+    max-width: 1000px !important;
+  }
+}
+
+@media (max-width: 2000px) {
+  .carousel {
+    max-width: 1125px !important;
+  }
+}

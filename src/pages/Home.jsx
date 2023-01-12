@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import MoviesAxios from "../service/popularMovies.service";
 import HomeCarousel from "../components/Home/HomeCarousel";
+import { Container } from "react-bootstrap";
 
 const Home = () => {
   const popularMoviesAxios = new MoviesAxios();
@@ -21,7 +22,11 @@ const Home = () => {
     getPopularMovies();
   }, []);
 
-  return <HomeCarousel popularMovies={popularMovies} />;
+  return (
+    <Container>
+      <HomeCarousel popularMovies={popularMovies} />
+    </Container>
+  );
 };
 
 export default Home;
