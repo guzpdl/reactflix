@@ -1,7 +1,9 @@
 import React from "react";
 import { Carousel, Container, Image, Row } from "react-bootstrap";
 
-const HomeCarousel = () => {
+const HomeCarousel = ({ popularMovies }) => {
+  console.log(popularMovies);
+
   return (
     <Container className="d-flex justify-content-center align-items-center">
       <Row>
