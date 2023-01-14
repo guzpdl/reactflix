@@ -4,6 +4,9 @@
   /* max-width: 1125px; */
   margin: 10px auto;
 }
+.carousel-indicators {
+  visibility: hidden;
+}
 
 .carousel-image {
   opacity: 0.4;

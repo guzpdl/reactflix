@@ -2,14 +2,13 @@ import React from "react";
 import { Carousel, Image } from "react-bootstrap";
 import "./HomeCarousel.css";
 
-const HomeCarousel = ({ popularMovies }) => {
-  console.log(popularMovies);
-
+const HomeCarousel = ({ movies }) => {
   return (
     <div className="px-5 pt-1">
-      <h2 className="text-white-50 square border-bottom">Trending Movies</h2>
+      <h2 className="text-white-50 square border-bottom">Trending movies</h2>
+
       <Carousel className="carousel ">
-        {popularMovies.map((popularMovie, index) => {
+        {movies.map((popularMovie, index) => {
           return (
             <Carousel.Item key={index}>
               <Image

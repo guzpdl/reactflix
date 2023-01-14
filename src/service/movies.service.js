@@ -7,9 +7,15 @@ class MoviesAxios extends InitAxios {
     super("movie/");
   }
 
-  popularMovies() {
+  movies() {
     return this.axios
       .get(`popular?api_key=${api_key}&language=en-US`)
+      .then((response) => response.data);
+  }
+
+  topRatedMovies() {
+    return this.axios
+      .get(`top_rated?api_key=${api_key}&language=en-US`)
       .then((response) => response.data);
   }
 }

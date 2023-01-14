@@ -1,32 +1,43 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import MoviesAxios from "../service/popularMovies.service";
+import MoviesAxios from "../service/movies.service";
 import HomeCarousel from "../components/Home/HomeCarousel";
 import { Container } from "react-bootstrap";
 import MovieRows from "../components/Home/MovieRows";
 
 const Home = () => {
-  const popularMoviesAxios = new MoviesAxios();
+  const moviesAxios = new MoviesAxios();
 
-  const [popularMovies, setPopularMovies] = useState([]);
+  const [movies, setPopularMovies] = useState([]);
+  const [topRatedMovies, setTopRatedMovies] = useState([]);
 
   const getPopularMovies = () => {
-    popularMoviesAxios
-      .popularMovies()
-      .then((popularMoviesData) => {
-        setPopularMovies(popularMoviesData.results);
+    moviesAxios
+      .movies()
+      .then((moviesData) => {
+        setPopularMovies(moviesData.results);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const getTopRatedMovies = () => {
+    moviesAxios
+      .topRatedMovies()
+      .then((topRatedMoviesData) => {
+        setTopRatedMovies(topRatedMoviesData.results);
       })
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
     getPopularMovies();
+    getTopRatedMovies();
   }, []);
 
   return (
     <Container>
-      <HomeCarousel popularMovies={popularMovies} />
-      <MovieRows />
+      <HomeCarousel movies={movies} />
+      <MovieRows topRatedMovies={topRatedMovies} />
     </Container>
   );
 };
