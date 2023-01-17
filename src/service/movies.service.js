@@ -18,6 +18,12 @@ class MoviesAxios extends InitAxios {
       .get(`top_rated?api_key=${api_key}&language=en-US`)
       .then((response) => response.data);
   }
+
+  movieById(id) {
+    return this.axios
+      .get(`${id}?api_key=${api_key}&language=en-US&append_to_response=videos`)
+      .then((response) => response.data);
+  }
 }
 
 export default MoviesAxios;

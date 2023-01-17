@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MoviesAxios from "../service/movies.service";
 import HomeCarousel from "../components/Home/HomeCarousel";
 import { Container } from "react-bootstrap";

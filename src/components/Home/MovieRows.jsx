@@ -1,6 +1,5 @@
 import React from "react";
-import { Container, Image, Card } from "react-bootstrap";
-
+import { Container, Card } from "react-bootstrap";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -8,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./MovieRows.css";
+import { Link } from "react-router-dom";
 
 const MovieRows = ({ topRatedMovies }) => {
   return (
@@ -22,13 +22,16 @@ const MovieRows = ({ topRatedMovies }) => {
           navigation={true}
         >
           {topRatedMovies.map((topRatedMovie, index) => {
+            console.log(topRatedMovie);
             return (
               <SwiperSlide key={index} className="poster-movies">
                 <Card className="bg-dark">
-                  <Card.Img
-                    variant="top"
-                    src={`https://image.tmdb.org/t/p/original${topRatedMovie.poster_path}`}
-                  />
+                  <Link to={`/movie/${topRatedMovie.id}`}>
+                    <Card.Img
+                      variant="top"
+                      src={`https://image.tmdb.org/t/p/original${topRatedMovie.poster_path}`}
+                    />
+                  </Link>
                 </Card>
               </SwiperSlide>
             );
