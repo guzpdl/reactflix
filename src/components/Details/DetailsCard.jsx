@@ -6,10 +6,14 @@ import "./DetailsCard.css";
 const DetailsCard = ({ movieInfo }) => {
   const videoOptions = {
     playerVars: {
-      autoplay: 0,
+      autoplay: 1,
       controls: 0,
       rel: 0,
       showinfo: 0,
+      mute: 1,
+      loop: 1,
+      disablekb: 1,
+      fs: 0,
     },
   };
 

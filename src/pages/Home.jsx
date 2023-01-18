@@ -3,6 +3,7 @@ import MoviesAxios from "../service/movies.service";
 import HomeCarousel from "../components/Home/HomeCarousel";
 import { Container } from "react-bootstrap";
 import MovieRows from "../components/Home/MovieRows";
+import TvShowRows from "../components/Home/TvShowRows";
 
 const Home = () => {
   const moviesAxios = new MoviesAxios();
@@ -37,6 +38,7 @@ const Home = () => {
     <Container>
       <HomeCarousel movies={movies} />
       <MovieRows topRatedMovies={topRatedMovies} />
+      <TvShowRows />
     </Container>
   );
 };
