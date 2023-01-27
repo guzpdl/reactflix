@@ -9,7 +9,7 @@ import "swiper/css/scrollbar";
 import "./MovieRows.css";
 import { Link } from "react-router-dom";
 
-const MovieRows = ({ topRatedMovies }) => {
+const MovieRows = ({ movieData }) => {
   return (
     <div className="px-5 pt-1">
       <h2 className="text-white-50 square border-bottom">Top rated movies</h2>
@@ -21,7 +21,7 @@ const MovieRows = ({ topRatedMovies }) => {
           slidesPerView={5}
           navigation={true}
         >
-          {topRatedMovies.map((topRatedMovie, index) => {
+          {movieData.map((topRatedMovie, index) => {
             return (
               <SwiperSlide key={index} className="poster-movies">
                 <Card className="bg-dark">

@@ -37,7 +37,8 @@ const Home = () => {
   return (
     <Container>
       <HomeCarousel movies={movies} />
-      <MovieRows topRatedMovies={topRatedMovies} />
+      <MovieRows movieData={topRatedMovies} />
+      {/* <MovieRows movieData={topRatedMovies} /> */}
       <TvShowRows />
     </Container>
   );
