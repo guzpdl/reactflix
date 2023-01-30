@@ -1,12 +1,14 @@
-.card-div {
-  height: 85vh;
-}
-
 iframe {
   width: 100%;
   height: 75vh;
 }
 
 .video-iframe {
+  opacity: 0.4;
+}
+
+.card-img {
+  width: 100vw;
+  height: 75vh;
   opacity: 0.4;
 }

@@ -9,10 +9,10 @@ import "swiper/css/scrollbar";
 import "./MovieRows.css";
 import { Link } from "react-router-dom";
 
-const MovieRows = ({ movieData }) => {
+const MovieRows = ({ movieData, title }) => {
   return (
     <div className="px-5 pt-1">
-      <h2 className="text-white-50 square border-bottom">Top rated movies</h2>
+      <h2 className="text-white-50 square border-bottom">{title}</h2>
       <Container className="container-movierows">
         <Swiper
           className="mySwiper"

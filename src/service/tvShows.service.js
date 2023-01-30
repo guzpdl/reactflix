@@ -18,6 +18,12 @@ class TvShowsAxios extends InitAxios {
       .get(`top_rated?api_key=${api_key}&language=en-US&page=1`)
       .then((response) => response.data);
   }
+
+  tvShowById(id) {
+    return this.axios
+      .get(`${id}?api_key=${api_key}&language=en-US&append_to_response=videos`)
+      .then((response) => response.data);
+  }
 }
 
 export default TvShowsAxios;

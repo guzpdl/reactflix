@@ -4,12 +4,16 @@ import HomeCarousel from "../components/Home/HomeCarousel";
 import { Container } from "react-bootstrap";
 import MovieRows from "../components/Home/MovieRows";
 import TvShowRows from "../components/Home/TvShowRows";
+import TvShowsAxios from "../service/tvShows.service";
 
 const Home = () => {
   const moviesAxios = new MoviesAxios();
+  const tvShowsAxios = new TvShowsAxios();
 
-  const [movies, setPopularMovies] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [popularTvShows, setPopularTvShows] = useState([]);
+  const [topRatedTvShows, setTopRatedTvShows] = useState([]);
 
   const getPopularMovies = () => {
     moviesAxios
@@ -29,17 +33,40 @@ const Home = () => {
       .catch((error) => console.log(error));
   };
 
+  const getPopularTvShows = () => {
+    tvShowsAxios
+      .popularTvShows()
+      .then((tvShowsData) => {
+        setPopularTvShows(tvShowsData.results);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const getTopRatedTvShows = () => {
+    tvShowsAxios
+      .topRatedTvShows()
+      .then((tvShowsData) => {
+        setTopRatedTvShows(tvShowsData.results);
+      })
+      .catch((error) => console.log(error));
+  };
+
   useEffect(() => {
     getPopularMovies();
     getTopRatedMovies();
+    getPopularTvShows();
+    getTopRatedTvShows();
   }, []);
+
+  console.log(popularTvShows);
 
   return (
     <Container>
-      <HomeCarousel movies={movies} />
-      <MovieRows movieData={topRatedMovies} />
+      <HomeCarousel movies={popularMovies} />
+      <MovieRows movieData={topRatedMovies} title={"Top rated movies"} />
       {/* <MovieRows movieData={topRatedMovies} /> */}
-      <TvShowRows />
+      <TvShowRows tvShowData={topRatedTvShows} title={"Top rated TV shows"} />
+      <TvShowRows tvShowData={popularTvShows} title={"Popular TV shows"} />
     </Container>
   );
 };
