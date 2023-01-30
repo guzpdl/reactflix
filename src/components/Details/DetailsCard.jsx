@@ -19,11 +19,14 @@ const DetailsCard = ({ selectedInfo, param }) => {
 
   let videoData = selectedInfo.videos;
 
+  console.log(selectedInfo);
+
   return (
     <Card className="card-div bg-dark text-white">
-      {videoData?.results.length !== 0 ? (
+      {videoData?.results?.length !== 0 ? (
         <YouTube
           videoId={videoData?.results?.[0]?.key}
+          host="https://www.youtube.com"
           opts={videoOptions}
           className="video-iframe"
         />
@@ -40,9 +43,13 @@ const DetailsCard = ({ selectedInfo, param }) => {
       )}
 
       <Card.ImgOverlay className="d-flex flex-column justify-content-end w-50">
-        <Card.Title>{selectedInfo.original_title}</Card.Title>
+        {param === "movie" ? (
+          <Card.Title>{selectedInfo.original_title}</Card.Title>
+        ) : (
+          <Card.Title>{selectedInfo.name}</Card.Title>
+        )}
         <Card.Text>{selectedInfo.overview}</Card.Text>
-        <Card.Text>Popularity: {selectedInfo.popularity}</Card.Text>
+        <Card.Text>Rating: {selectedInfo?.vote_average?.toFixed(1)}</Card.Text>
         {param === "movie" && (
           <>
             <Card.Text>Release date: {selectedInfo.release_date}</Card.Text>
