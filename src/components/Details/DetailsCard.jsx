@@ -14,6 +14,7 @@ const DetailsCard = ({ selectedInfo, param }) => {
       loop: 1,
       disablekb: 1,
       fs: 0,
+      origin: "http://localhost:3000",
     },
   };
 
